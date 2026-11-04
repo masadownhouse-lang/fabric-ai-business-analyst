@@ -74,9 +74,41 @@ Sales campaigns and promotions.
 
 ## Facts
 
-### FactSalesInvoiceLine
+## FactSalesInvoiceLine
 
-Sales invoice line transactions.
+Represents sales invoice line transactions.
+
+### Grain
+
+One row = one sales invoice line.
+
+### Keys
+
+- CustomerKey
+- ItemKey
+- LotKey
+- WarehouseKey
+
+### Document Information
+
+- SalesInvoiceNumber
+- SalesInvoiceLineNumber
+
+### Quantities
+
+- Quantity
+
+### Pricing
+
+- UnitPrice
+- LineAmount
+- DiscountAmount
+- NetAmount
+
+### Dates
+
+- InvoiceDate
+
 
 ## FactPurchaseInvoiceLine
 
