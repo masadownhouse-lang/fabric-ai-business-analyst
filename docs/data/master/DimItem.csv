@@ -1,1 +1,33 @@
 ItemKey,ItemNumber,ItemName,Brand,CategoryLevel1,CategoryLevel2,UnitOfMeasure,ShelfLifeDays,StandardCost,ListPrice,IsActive
+1,DAI-YOG-001,Greek Yogurt 200g,Nordic Foods,Dairy,Yogurt,PCS,30,0.75,1.95,TRUE
+2,DAI-YOG-002,Strawberry Yogurt 200g,Nordic Foods,Dairy,Yogurt,PCS,30,0.75,1.95,TRUE
+3,DAI-YOG-003,Vanilla Yogurt 200g,Nordic Foods,Dairy,Yogurt,PCS,30,0.75,1.95,TRUE
+4,DAI-CHS-001,Premium Cheese 1kg,Nordic Foods,Dairy,Cheese,PCS,120,3.20,6.95,TRUE
+5,DAI-CHS-002,Light Cheese 1kg,Nordic Foods,Dairy,Cheese,PCS,120,3.00,6.50,TRUE
+6,DAI-CHS-003,Cheddar Cheese 1kg,Nordic Foods,Dairy,Cheese,PCS,120,3.40,7.20,TRUE
+7,DAI-MLK-001,Whole Milk 1L,Nordic Foods,Dairy,Milk,PCS,14,0.45,1.29,TRUE
+8,DAI-MLK-002,Low Fat Milk 1L,Nordic Foods,Dairy,Milk,PCS,14,0.42,1.25,TRUE
+9,DAI-MLK-003,Lactose Free Milk 1L,Nordic Foods,Dairy,Milk,PCS,14,0.55,1.65,TRUE
+10,FRO-PIZ-001,Pepperoni Pizza 300g,Nordic Foods,Frozen Food,Frozen Pizza,PCS,180,1.85,4.90,TRUE
+11,FRO-PIZ-002,Margherita Pizza 300g,Nordic Foods,Frozen Food,Frozen Pizza,PCS,180,1.60,4.50,TRUE
+12,FRO-PIZ-003,Ham Pizza 350g,Nordic Foods,Frozen Food,Frozen Pizza,PCS,180,1.95,5.20,TRUE
+13,FRO-MEA-001,Chicken Rice Meal,Nordic Foods,Frozen Food,Frozen Meals,PCS,365,2.10,5.90,TRUE
+14,FRO-MEA-002,Beef Pasta Meal,Nordic Foods,Frozen Food,Frozen Meals,PCS,365,2.25,6.20,TRUE
+15,FRO-MEA-003,Vegetarian Meal,Nordic Foods,Frozen Food,Frozen Meals,PCS,365,1.95,5.50,TRUE
+16,BEV-JUI-001,Orange Juice 1L,Nordic Foods,Beverages,Juice,PCS,365,0.85,2.50,TRUE
+17,BEV-JUI-002,Apple Juice 1L,Nordic Foods,Beverages,Juice,PCS,365,0.80,2.40,TRUE
+18,BEV-JUI-003,Mixed Fruit Juice 1L,Nordic Foods,Beverages,Juice,PCS,365,0.95,2.75,TRUE
+19,BEV-SOF-001,Cola 500ml,Nordic Foods,Beverages,Soft Drinks,PCS,365,0.35,1.95,TRUE
+20,BEV-SOF-002,Lemon Soda 500ml,Nordic Foods,Beverages,Soft Drinks,PCS,365,0.35,1.95,TRUE
+21,BEV-SOF-003,Orange Soda 500ml,Nordic Foods,Beverages,Soft Drinks,PCS,365,0.35,1.95,TRUE
+22,BEV-ENG-001,Energy Drink Original,Nordic Foods,Beverages,Energy Drinks,PCS,365,0.60,2.95,TRUE
+23,BEV-ENG-002,Energy Drink Sugar Free,Nordic Foods,Beverages,Energy Drinks,PCS,365,0.60,2.95,TRUE
+24,SNK-CHP-001,Salted Chips,Nordic Foods,Snacks,Chips,PCS,270,0.50,2.20,TRUE
+25,SNK-CHP-002,Paprika Chips,Nordic Foods,Snacks,Chips,PCS,270,0.50,2.20,TRUE
+26,SNK-CHP-003,Sour Cream Chips,Nordic Foods,Snacks,Chips,PCS,270,0.55,2.30,TRUE
+27,SNK-NUT-001,Salted Peanuts,Nordic Foods,Snacks,Nuts,PCS,365,0.75,3.20,TRUE
+28,SNK-NUT-002,Mixed Nuts,Nordic Foods,Snacks,Nuts,PCS,365,0.95,3.95,TRUE
+29,RME-PAS-001,Chicken Pasta,Nordic Foods,Ready Meals,Pasta,PCS,90,1.75,4.90,TRUE
+30,RME-PAS-002,Beef Pasta,Nordic Foods,Ready Meals,Pasta,PCS,90,1.95,5.20,TRUE
+31,RME-RIC-001,Chicken Rice,Nordic Foods,Ready Meals,Rice Meals,PCS,90,1.80,4.90,TRUE
+32,RME-RIC-002,Teriyaki Rice,Nordic Foods,Ready Meals,Rice Meals,PCS,90,1.90,5.10,TRUE
