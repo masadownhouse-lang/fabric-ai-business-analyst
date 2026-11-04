@@ -78,9 +78,43 @@ Sales campaigns and promotions.
 
 Sales invoice line transactions.
 
-### FactPurchaseInvoiceLine
+## FactPurchaseInvoiceLine
 
-Purchase invoice line transactions.
+Represents purchase invoice lines received from suppliers.
+
+### Grain
+
+One row = one purchase invoice line.
+
+### Keys
+
+- InvoiceDateKey
+- SupplierKey
+- ItemKey
+- LotKey
+- WarehouseKey
+
+### Document Information
+
+- PurchaseInvoiceNumber
+- PurchaseInvoiceLineNumber
+
+### Quantities
+
+- Quantity
+
+### Costs
+
+- UnitCost
+- LineAmount
+
+### Dates
+
+- InvoiceDate
+
+### Audit
+
+- CreatedDate
 
 ### FactInventoryTransaction
 
