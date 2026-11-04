@@ -1,0 +1,6 @@
+WarehouseKey,WarehouseCode,WarehouseName,Country,City,WarehouseType,IsActive
+1,WH-FI-01,Helsinki Distribution Center,Finland,Helsinki,Distribution,TRUE
+2,WH-FI-02,Tampere Cold Storage,Finland,Tampere,Cold Storage,TRUE
+3,WH-SE-01,Stockholm Distribution Center,Sweden,Stockholm,Distribution,TRUE
+4,WH-EE-01,Tallinn Distribution Center,Estonia,Tallinn,Distribution,TRUE
+5,WH-CENTRAL,Nordic Central Warehouse,Finland,Vantaa,Central,TRUE
