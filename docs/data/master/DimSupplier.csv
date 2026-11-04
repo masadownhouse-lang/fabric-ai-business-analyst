@@ -1,0 +1,11 @@
+SupplierKey,SupplierNumber,SupplierName,SupplierCategory,Country,LeadTimeDays,IsActive
+1,SUP-DAI-001,Nordic Dairy Ingredients,Dairy Supplier,Finland,7,TRUE
+2,SUP-DAI-002,Scandinavian Cheese Partners,Dairy Supplier,Sweden,10,TRUE
+3,SUP-BEV-001,Baltic Juice Suppliers,Beverage Supplier,Estonia,14,TRUE
+4,SUP-BEV-002,Nordic Beverage Group,Beverage Supplier,Finland,7,TRUE
+5,SUP-FRO-001,Frozen Foods Manufacturing,Frozen Food Supplier,Finland,14,TRUE
+6,SUP-FRO-002,Swedish Ready Meal Co,Frozen Food Supplier,Sweden,10,TRUE
+7,SUP-PKG-001,Nordic Packaging Solutions,Packaging Supplier,Finland,5,TRUE
+8,SUP-PKG-002,Baltic Food Packaging,Packaging Supplier,Estonia,7,TRUE
+9,SUP-SNK-001,Scandinavian Snack Foods,Snack Supplier,Sweden,7,TRUE
+10,SUP-SNK-002,Nordic Nut Imports,Snack Supplier,Finland,14,TRUE
