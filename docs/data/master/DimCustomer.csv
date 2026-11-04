@@ -1,0 +1,16 @@
+CustomerKey,CustomerNumber,CustomerName,Country,Segment,PaymentTermsDays,IsActive
+1,CUST-FI-001,K-Market Helsinki,Finland,Retail,14,TRUE
+2,CUST-FI-002,S-Market Tampere,Finland,Retail,14,TRUE
+3,CUST-FI-003,Prisma Vantaa,Finland,Retail,14,TRUE
+4,CUST-FI-004,FoodService Finland,Finland,Wholesale,30,TRUE
+5,CUST-FI-005,Helsinki University Hospital,Finland,Public Sector,30,TRUE
+6,CUST-FI-006,Restaurant Group Finland,Finland,Restaurant,14,TRUE
+7,CUST-SE-001,ICA Stockholm,Sweden,Retail,14,TRUE
+8,CUST-SE-002,Coop Sweden,Sweden,Retail,14,TRUE
+9,CUST-SE-003,FoodService Sweden,Sweden,Wholesale,30,TRUE
+10,CUST-SE-004,Restaurant Group Sweden,Sweden,Restaurant,14,TRUE
+11,CUST-EE-001,Rimi Tallinn,Estonia,Retail,14,TRUE
+12,CUST-EE-002,Selver Tallinn,Estonia,Retail,14,TRUE
+13,CUST-EE-003,FoodService Estonia,Estonia,Wholesale,30,TRUE
+14,CUST-EE-004,Restaurant Group Estonia,Estonia,Restaurant,14,TRUE
+15,CUST-EE-005,Tallinn City Services,Estonia,Public Sector,30,TRUE
