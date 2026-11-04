@@ -116,18 +116,36 @@ One row = one purchase invoice line.
 
 - CreatedDate
 
-### FactInventoryTransaction
+## FactInventoryTransaction
 
-Inventory movements.
+Represents all inventory movements.
 
-Examples:
+### Grain
 
-- Purchase
-- Sale
-- Transfer
-- Adjustment
-- Write-Off
-- Recall
+One row = one inventory transaction.
+
+### Keys
+
+- TransactionDate
+- ItemKey
+- LotKey
+- WarehouseKey
+
+### Attributes
+
+- InventoryTransactionNumber
+- TransactionType
+
+### Quantities
+
+- Quantity
+- UnitCost
+- Amount
+
+### References
+
+- PurchaseInvoiceNumber
+- SalesInvoiceNumber
 
 ### FactInventorySnapshot
 
