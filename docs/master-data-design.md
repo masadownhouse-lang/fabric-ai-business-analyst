@@ -43,6 +43,32 @@ Target Volume: 100
 - WH-CENTRAL
 
 ---
+
+
+## DimLot
+
+### Primary Key
+
+LotKey
+
+### Business Key
+
+LotNumber
+
+### Attributes
+
+- LotKey
+- LotNumber
+- ItemKey
+- SupplierKey
+- ProductionDate
+- ExpiryDate
+- ShelfLifeDays
+- RecallFlag
+- RecallDate
+- RecallReason
+
+---
 ## DimItem
 
 Source: product-hierarchy.md
