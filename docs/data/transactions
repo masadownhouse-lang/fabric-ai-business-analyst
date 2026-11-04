@@ -1,1 +1,1 @@
-
+PurchaseInvoiceNumber,PurchaseInvoiceLineNumber,InvoiceDate,SupplierKey,ItemKey,LotKey,WarehouseKey,Quantity,UnitCost,LineAmount
