@@ -51,3 +51,26 @@ Target Volume: ~30 products
 Source: product-hierarchy.md
 
 Target Volume: ~30 products
+## DimItem
+
+### Primary Key
+
+ItemKey
+
+### Business Key
+
+ItemNumber
+
+### Attributes
+
+- ItemKey
+- ItemNumber
+- ItemName
+- Brand
+- CategoryLevel1
+- CategoryLevel2
+- UnitOfMeasure
+- ShelfLifeDays
+- StandardCost
+- ListPrice
+- IsActive
