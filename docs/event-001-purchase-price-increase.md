@@ -35,8 +35,6 @@ Purchase Cost:
 - Gross Margin decreases
 - EBITDA decreases
 
-## AI Questions
-
 ## Data Impact
 
 Affected Tables
@@ -44,28 +42,18 @@ Affected Tables
 - FactPurchaseInvoiceLine
 - FactGLEntry
 
-Affected KPI
+Affected Accounts
+
+- 4010 Dairy Raw Materials
+
+Affected KPIs
 
 - COGS
 - Gross Margin
 - EBITDA
 
-Affected Accounts
+## AI Questions
 
-- 4010 Dairy Raw Materials
-
-Why did Gross Margin decrease?
-
-Why did EBITDA decrease?
-
-Which products were most affected by purchase cost inflation?
-
-Affected Accounts
-
-4010 Dairy Raw Materials
-
-Affected KPIs
-
-COGS
-Gross Margin
-EBITDA
+- Why did Gross Margin decrease?
+- Why did EBITDA decrease?
+- Which products were most affected by purchase cost inflation?
