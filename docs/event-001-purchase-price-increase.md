@@ -59,3 +59,13 @@ Why did Gross Margin decrease?
 Why did EBITDA decrease?
 
 Which products were most affected by purchase cost inflation?
+
+Affected Accounts
+
+4010 Dairy Raw Materials
+
+Affected KPIs
+
+COGS
+Gross Margin
+EBITDA
