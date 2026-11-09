@@ -1,32 +1,32 @@
 AccountKey,AccountNumber,AccountName,AccountGroup,AccountCategory,StatementType,EBITAImpact
-1,3000,Sales Revenue Finland,Revenue,Revenue,P&L,TRUE
-2,3010,Sales Revenue Sweden,Revenue,Revenue,P&L,TRUE
-3,3020,Sales Revenue Estonia,Revenue,Revenue,P&L,TRUE
-4,3100,Sales Discounts,Revenue,Revenue,P&L,TRUE
-5,3110,Campaign Discounts,Revenue,Revenue,P&L,TRUE
+1,3000,Sales Revenue Finland,Revenue,Sales Revenue,P&L,TRUE
+2,3010,Sales Revenue Sweden,Revenue,Sales Revenue,P&L,TRUE
+3,3020,Sales Revenue Estonia,Revenue,Sales Revenue,P&L,TRUE
+4,3100,Sales Discounts,Revenue,Sales Discounts,P&L,TRUE
+5,3110,Campaign Discounts,Revenue,Campaign Discounts,P&L,TRUE
 
-6,4000,Raw Materials,COGS,COGS,P&L,TRUE
-7,4010,Dairy Raw Materials,COGS,COGS,P&L,TRUE
-8,4020,Frozen Food Raw Materials,COGS,COGS,P&L,TRUE
-9,4030,Beverage Raw Materials,COGS,COGS,P&L,TRUE
-10,4100,Packaging Cost,COGS,COGS,P&L,TRUE
-11,4200,Freight Cost,COGS,COGS,P&L,TRUE
+6,4000,Raw Materials,COGS,Raw Materials,P&L,TRUE
+7,4010,Dairy Raw Materials,COGS,Raw Materials,P&L,TRUE
+8,4020,Frozen Food Raw Materials,COGS,Raw Materials,P&L,TRUE
+9,4030,Beverage Raw Materials,COGS,Raw Materials,P&L,TRUE
+10,4100,Packaging Cost,COGS,Packaging,P&L,TRUE
+11,4200,Freight Cost,COGS,Freight,P&L,TRUE
 
-12,5000,Warehouse Personnel Cost,OPEX,Operating Expense,P&L,TRUE
-13,5010,Sales Personnel Cost,OPEX,Operating Expense,P&L,TRUE
-14,5020,Administration Personnel Cost,OPEX,Operating Expense,P&L,TRUE
+12,5000,Warehouse Personnel Cost,Operating Expenses,Personnel,P&L,TRUE
+13,5010,Sales Personnel Cost,Operating Expenses,Personnel,P&L,TRUE
+14,5020,Administration Personnel Cost,Operating Expenses,Personnel,P&L,TRUE
 
-15,5100,Warehouse Cost,OPEX,Operating Expense,P&L,TRUE
-16,5110,Cold Storage Cost,OPEX,Operating Expense,P&L,TRUE
+15,5100,Warehouse Cost,Operating Expenses,Warehouse,P&L,TRUE
+16,5110,Cold Storage Cost,Operating Expenses,Warehouse,P&L,TRUE
 
-17,5200,Marketing Cost,OPEX,Operating Expense,P&L,TRUE
-18,5210,Campaign Cost,OPEX,Operating Expense,P&L,TRUE
+17,5200,Marketing Cost,Operating Expenses,Marketing,P&L,TRUE
+18,5210,Campaign Cost,Operating Expenses,Marketing,P&L,TRUE
 
-19,5300,Administration Cost,OPEX,Operating Expense,P&L,TRUE
+19,5300,Administration Cost,Operating Expenses,Administration,P&L,TRUE
 
-20,5400,Inventory Write-Off,OPEX,Operating Expense,P&L,TRUE
-21,5410,Expiry Write-Off,OPEX,Operating Expense,P&L,TRUE
-22,5420,Recall Write-Off,OPEX,Operating Expense,P&L,TRUE
+20,5400,Inventory Write-Off,Operating Expenses,Inventory Write-Off,P&L,TRUE
+21,5410,Expiry Write-Off,Operating Expenses,Expiry Write-Off,P&L,TRUE
+22,5420,Recall Write-Off,Operating Expenses,Recall Write-Off,P&L,TRUE
 
 23,6000,Depreciation,Depreciation,Depreciation,P&L,FALSE
 24,6010,Amortization,Depreciation,Amortization,P&L,FALSE
@@ -34,7 +34,7 @@ AccountKey,AccountNumber,AccountName,AccountGroup,AccountCategory,StatementType,
 25,7000,Interest Income,Financial Items,Financial,P&L,FALSE
 26,7100,Interest Expense,Financial Items,Financial,P&L,FALSE
 
-27,1000,Inventory Asset,Current Assets,Balance Sheet,Balance Sheet,FALSE
-28,1100,Accounts Receivable,Current Assets,Balance Sheet,Balance Sheet,FALSE
-29,1200,Cash and Bank,Current Assets,Balance Sheet,Balance Sheet,FALSE
-30,2000,Accounts Payable,Current Liabilities,Balance Sheet,Balance Sheet,FALSE
+27,1000,Inventory Asset,Current Assets,Inventory,Balance Sheet,FALSE
+28,1100,Accounts Receivable,Current Assets,Receivables,Balance Sheet,FALSE
+29,1200,Cash and Bank,Current Assets,Cash,Balance Sheet,FALSE
+30,2000,Accounts Payable,Current Liabilities,Payables,Balance Sheet,FALSE
