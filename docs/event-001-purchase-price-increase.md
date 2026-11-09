@@ -37,6 +37,23 @@ Purchase Cost:
 
 ## AI Questions
 
+## Data Impact
+
+Affected Tables
+
+- FactPurchaseInvoiceLine
+- FactGLEntry
+
+Affected KPI
+
+- COGS
+- Gross Margin
+- EBITDA
+
+Affected Accounts
+
+- 4010 Dairy Raw Materials
+
 Why did Gross Margin decrease?
 
 Why did EBITDA decrease?
