@@ -1,0 +1,4 @@
+PriceKey,ItemKey,SupplierKey,ValidFromDate,ValidToDate,PurchasePrice
+1,6,2,2026-01-01,2026-03-31,3.40
+2,6,2,2026-04-01,2026-06-30,3.75
+3,6,2,2026-07-01,2026-12-31,4.10
