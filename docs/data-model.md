@@ -183,9 +183,40 @@ One row = one inventory transaction.
 
 Daily inventory balances and inventory value.
 
-### FactGLEntry
+## FactGLEntry
 
-General Ledger transactions.
+Represents General Ledger postings.
+
+### Grain
+
+One row = one general ledger entry.
+
+### Keys
+
+- PostingDate
+- AccountKey
+
+### Document Information
+
+- GLEntryNumber
+- DocumentNumber
+- DocumentType
+
+### References
+
+- CustomerKey
+- SupplierKey
+- ItemKey
+
+### Financial Information
+
+- Amount
+
+### Organization
+
+- Country
+- BusinessUnit
+
 
 ### FactSalesPrice
 
