@@ -1,0 +1,4 @@
+GLEntryNumber,PostingDate,DocumentNumber,DocumentType,AccountKey,CustomerKey,SupplierKey,ItemKey,CostCenter,Country,BusinessUnit,Amount
+1001,2026-01-15,PI-2026-000100,PURCHASE,7,,2,6,PROCUREMENT,Finland,Dairy,-1700.00
+1002,2026-04-15,PI-2026-000200,PURCHASE,7,,2,6,PROCUREMENT,Finland,Dairy,-1875.00
+1003,2026-07-15,PI-2026-000300,PURCHASE,7,,2,6,PROCUREMENT,Finland,Dairy,-2050.00
