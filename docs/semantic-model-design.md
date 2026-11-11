@@ -84,3 +84,40 @@ Personnel
 
 Gross Margin
 - Operating Expenses
+## Event 001 Validation
+
+Business Event
+
+Purchase Price Increase
+
+Expected Metric Impact
+
+Revenue
+
+No significant impact
+
+COGS
+
+Increase
+
+Gross Margin
+
+Decrease
+
+Gross Margin %
+
+Decrease
+
+Operating Expenses
+
+No direct impact
+
+EBITDA
+
+Decrease
+
+Expected AI Explanation
+
+EBITDA decreased because purchase costs increased.
+
+The largest contributor was Dairy Raw Materials (Account 4010) driven by increased purchase prices for DAI-CHS-003 Cheddar Cheese 1kg.
