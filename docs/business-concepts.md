@@ -80,3 +80,35 @@ Business Impact
 - COGS Increase
 - Gross Margin Decrease
 - EBITDA Decrease
+---
+
+## EBITDA
+
+Definition
+
+Earnings Before Interest, Taxes, Depreciation and Amortization.
+
+Formula
+
+Revenue
+- COGS
+- Operating Expenses
+
+Business Meaning
+
+Measures operating profitability before financing and accounting adjustments.
+
+Root Cause Drivers
+
+- Revenue Changes
+- Purchase Price Changes
+- Inventory Write-Offs
+- Marketing Costs
+- Personnel Costs
+
+Related Concepts
+
+- Revenue
+- COGS
+- Operating Expenses
+- Gross Margin
