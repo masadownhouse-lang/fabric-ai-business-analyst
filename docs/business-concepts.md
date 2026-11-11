@@ -233,3 +233,54 @@ Gross Margin Decrease
 Supporting Event
 
 Event 001 - Purchase Price Increase
+
+---
+
+## Revenue
+
+Definition
+
+Total invoiced sales revenue after discounts.
+
+Formula
+
+Sales Revenue
+- Sales Discounts
+- Campaign Discounts
+
+Business Meaning
+
+Measures sales performance and customer demand.
+
+Root Cause Drivers
+
+- Sales Volume Changes
+- Sales Price Changes
+- Product Mix Changes
+- Promotions
+- Demand Changes
+
+Related Concepts
+
+- Gross Margin
+- EBITDA
+- Customer
+- Product
+
+Related Accounts
+
+- 3000 Sales Revenue Finland
+- 3010 Sales Revenue Sweden
+- 3020 Sales Revenue Estonia
+- 3100 Sales Discounts
+- 3110 Campaign Discounts
+
+Example Analysis
+
+If Revenue decreases:
+
+1. Analyze sales volume by product
+2. Analyze sales volume by customer
+3. Analyze country performance
+4. Analyze product categories
+5. Identify business events affecting demand
