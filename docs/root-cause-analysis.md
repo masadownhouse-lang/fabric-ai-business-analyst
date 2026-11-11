@@ -46,7 +46,7 @@ Purchase Price History
 
 - 2026-01-01 → 3.40 €
 - 2026-04-01 → 3.75 €
-- 2026-07-01 → 4.10 €
+- 2026-07-01 → 4.15 €
 
 Purchase Invoices
 
@@ -72,7 +72,7 @@ Sales Invoices
 
 EBITDA decreased due to increased dairy raw material costs.
 
-The primary contributing factor was the increase in Cheddar Cheese 1kg purchase prices from 3.40 € to 4.10 € during 2026.
+The primary contributing factor was the increase in Cheddar Cheese 1kg purchase prices from 3.40 € to 4.15 € during 2026.
 
 The increased purchase costs were recorded on account 4010 Dairy Raw Materials and resulted in higher COGS, lower Gross Margin and lower EBITDA.
 
