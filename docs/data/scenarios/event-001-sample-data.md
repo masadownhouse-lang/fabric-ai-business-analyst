@@ -11,4 +11,4 @@ Purchase Cost 3.75 €
 July 2026
 
 Cheddar Cheese
-Purchase Cost 4.10 €
+Purchase Cost 4.15 €
