@@ -27,7 +27,7 @@ Purchase Cost:
 2026-07-01
 
 Purchase Cost:
-4.10 €
+4.15 €
 
 ## Expected Impact
 
