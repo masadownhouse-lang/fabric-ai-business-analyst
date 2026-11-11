@@ -27,3 +27,21 @@ Frozen Pizza
 - Why did Revenue increase?
 - Why did Gross Margin % decrease?
 - Why did EBITDA decrease despite higher sales?
+## Data Impact
+
+Affected Tables
+
+- FactSalesInvoiceLine
+- FactGLEntry
+
+Affected Accounts
+
+- 3110 Campaign Discounts
+- 5210 Campaign Cost
+
+Affected KPIs
+
+- Revenue
+- Gross Margin
+- Gross Margin %
+- EBITDA
