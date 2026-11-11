@@ -81,3 +81,61 @@ Supporting evidence was found in:
 - FactPurchasePrice
 - FactPurchaseInvoiceLine
 - FactGLEntry
+
+---
+
+## Root Cause Query Example 001
+
+Question
+
+Why did EBITDA decrease in July 2026?
+
+Analysis Path
+
+EBITDA
+
+↓
+
+Gross Margin
+
+↓
+
+COGS
+
+↓
+
+4010 Dairy Raw Materials
+
+↓
+
+DAI-CHS-003 Cheddar Cheese 1kg
+
+↓
+
+Purchase Price Increase
+
+Evidence
+
+Purchase Price
+
+2026-01-01 → 3.40 €
+
+2026-04-01 → 3.75 €
+
+2026-07-01 → 4.15 €
+
+Supporting Transactions
+
+PI-2026-000100
+
+PI-2026-000200
+
+PI-2026-000300
+
+Expected AI Conclusion
+
+EBITDA decreased because dairy raw material costs increased.
+
+The largest contributing factor was Cheddar Cheese 1kg, whose purchase price increased from 3.40 € to 4.15 € during 2026.
+
+The increase was recorded on account 4010 Dairy Raw Materials, increasing COGS and reducing Gross Margin.
