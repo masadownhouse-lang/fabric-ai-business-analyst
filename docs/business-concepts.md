@@ -157,4 +157,79 @@ If EBITDA decreases:
 6. Quantify impact in euros
 7. Map findings to known business events
 
+---
 
+## Gross Margin
+
+Definition
+
+Revenue remaining after deducting Cost of Goods Sold (COGS).
+
+Formula
+
+Revenue
+- COGS
+
+Business Meaning
+
+Measures product and category profitability before operating expenses.
+
+Root Cause Drivers
+
+- Purchase Price Changes
+- Sales Price Changes
+- Product Mix Changes
+- Promotions
+- Inventory Losses
+
+Related Concepts
+
+- Revenue
+- COGS
+- EBITDA
+- Product
+- Purchase Price Increase
+
+Related Accounts
+
+Revenue
+
+- 3000 Sales Revenue Finland
+- 3010 Sales Revenue Sweden
+- 3020 Sales Revenue Estonia
+- 3100 Sales Discounts
+- 3110 Campaign Discounts
+
+COGS
+
+- 4000 Raw Materials
+- 4010 Dairy Raw Materials
+- 4020 Frozen Food Raw Materials
+- 4030 Beverage Raw Materials
+- 4100 Packaging Cost
+- 4200 Freight Cost
+
+Example Analysis
+
+If Gross Margin decreases:
+
+1. Analyze Revenue changes
+2. Analyze Purchase Cost changes
+3. Analyze Product Mix changes
+4. Identify affected product categories
+5. Quantify impact in euros
+6. Map findings to business events
+
+Example Root Cause
+
+Purchase Price Increase
+↓
+Dairy Raw Materials Increase
+↓
+COGS Increase
+↓
+Gross Margin Decrease
+
+Supporting Event
+
+Event 001 - Purchase Price Increase
