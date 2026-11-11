@@ -64,3 +64,34 @@ ERP Data
 ## Project Status
 
 Planning Phase
+## Implemented Business Events
+
+### Event 001 - Purchase Price Increase
+
+Root Cause Path
+
+Purchase Price Increase
+↓
+COGS Increase
+↓
+Gross Margin Decrease
+↓
+EBITDA Decrease
+
+### Event 002 - Promotion Campaign
+
+Root Cause Path
+
+Promotion Campaign
+↓
+Campaign Discounts
+↓
+Gross Margin % Decrease
+
+Promotion Campaign
+↓
+Campaign Cost
+↓
+Operating Expenses Increase
+↓
+EBITDA Decrease
