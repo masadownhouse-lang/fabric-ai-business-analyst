@@ -86,3 +86,30 @@ Not Started
 ## Next Phase
 
 Event 003 - Demand Drop
+
+## Future Enhancements
+
+### Business Event Detection
+
+Current State
+
+Business events are predefined and injected into the synthetic dataset.
+
+Future Goal
+
+Detect business events automatically from data patterns.
+
+Examples
+
+- Purchase price increases above threshold
+- Significant demand decline
+- Inventory turnover deterioration
+- Expiry risk increase
+- Gross Margin deviations from expected levels
+
+Potential Technologies
+
+- Fabric Data Activator
+- Fabric Real-Time Intelligence
+- Event-Driven Alerts
+- Agent-generated RCA workflows
