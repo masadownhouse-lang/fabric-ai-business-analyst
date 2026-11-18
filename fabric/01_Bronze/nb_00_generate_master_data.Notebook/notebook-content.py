@@ -1084,3 +1084,110 @@ print("=" * 60)
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# CELL ********************
+
+from pyspark.sql.functions import *
+from pyspark.sql.types import *
+
+print("Starting General Ledger Fact generation...")
+
+data = [
+
+# Event 001 - Purchase Price Increase
+
+(1001,"2026-01-15","PI-2026-000100","PURCHASE",7,None,2,6,"PROCUREMENT","Finland","Dairy",-1700.00),
+(1002,"2026-04-15","PI-2026-000200","PURCHASE",7,None,2,6,"PROCUREMENT","Finland","Dairy",-1875.00),
+(1003,"2026-07-15","PI-2026-000300","PURCHASE",7,None,2,6,"PROCUREMENT","Finland","Dairy",-2075.00),
+
+# Normal Revenue
+
+(2001,"2026-01-10","SI-2026-000001","SALE",1,1,None,1,"SALES","Finland","Retail",585.00),
+(2002,"2026-01-10","SI-2026-000001","SALE",1,1,None,2,"SALES","Finland","Retail",487.50),
+
+(2003,"2026-01-15","SI-2026-000002","SALE",1,2,None,10,"SALES","Finland","FrozenFood",980.00),
+(2004,"2026-01-15","SI-2026-000002","SALE",1,2,None,11,"SALES","Finland","FrozenFood",810.00),
+
+# Event 001 Revenue
+
+(2100,"2026-07-20","SI-2026-000500","SALE",1,1,None,6,"SALES","Finland","Dairy",2160.00),
+
+# Event 002 - Campaign Discounts
+
+(3001,"2026-06-30","CMP-2026-001","CAMPAIGN",5,None,None,None,"MARKETING","Finland","FrozenFood",-258.50),
+
+# Event 002 - Campaign Cost
+
+(3002,"2026-06-30","CMP-2026-001","CAMPAIGN",18,None,None,None,"MARKETING","Finland","FrozenFood",-1500.00)
+
+]
+
+schema = StructType([
+    StructField("GLEntryNumber", IntegerType(), False),
+    StructField("PostingDate", StringType(), False),
+    StructField("DocumentNumber", StringType(), False),
+    StructField("DocumentType", StringType(), False),
+    StructField("AccountKey", IntegerType(), False),
+    StructField("CustomerKey", IntegerType(), True),
+    StructField("SupplierKey", IntegerType(), True),
+    StructField("ItemKey", IntegerType(), True),
+    StructField("CostCenter", StringType(), True),
+    StructField("Country", StringType(), True),
+    StructField("BusinessUnit", StringType(), True),
+    StructField("Amount", DoubleType(), False)
+])
+
+df_gl = spark.createDataFrame(
+    data,
+    schema
+)
+
+spark.sql("""
+DROP TABLE IF EXISTS f_gl_entry
+""")
+
+(
+    df_gl.write
+    .mode("overwrite")
+    .format("delta")
+    .saveAsTable("f_gl_entry")
+)
+
+row_count = df_gl.count()
+
+revenue_rows = (
+    df_gl
+    .filter(col("AccountKey") == 1)
+    .count()
+)
+
+event001_rows = (
+    df_gl
+    .filter(col("AccountKey") == 7)
+    .count()
+)
+
+event002_rows = (
+    df_gl
+    .filter(col("AccountKey").isin([5,18]))
+    .count()
+)
+
+print("=" * 60)
+print("BRONZE LAYER LOAD SUMMARY")
+print("=" * 60)
+print("Target Lakehouse : bronze_lakehouse")
+print("Target Table     : f_gl_entry")
+print(f"Rows Generated   : {row_count}")
+print(f"Revenue Rows     : {revenue_rows}")
+print(f"Event 001 Rows   : {event001_rows}")
+print(f"Event 002 Rows   : {event002_rows}")
+print("Load Status      : SUCCESS")
+print("=" * 60)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }

@@ -6,14 +6,54 @@
 # META   "kernel_info": {
 # META     "name": "synapse_pyspark"
 # META   },
-# META   "dependencies": {}
+# META   "dependencies": {
+# META     "lakehouse": {
+# META       "default_lakehouse": "c7365c89-ac0d-40cd-b656-3251515fc0eb",
+# META       "default_lakehouse_name": "silver_lakehouse",
+# META       "default_lakehouse_workspace_id": "0c94de57-e2a9-43b8-b434-39b714e56a44",
+# META       "known_lakehouses": [
+# META         {
+# META           "id": "55392c9d-8525-440b-8e37-cfddce4bb5e4"
+# META         },
+# META         {
+# META           "id": "c7365c89-ac0d-40cd-b656-3251515fc0eb"
+# META         }
+# META       ]
+# META     }
+# META   }
 # META }
 
 # CELL ********************
 
-# Welcome to your new notebook
-# Type here in the cell editor to add code!
+from pyspark.sql.functions import *
 
+print("Starting Bronze to Silver transformation...")
+
+# 1. Read Bronze data
+df = spark.read.table("bronze_lakehouse.dbo.d_item")
+
+# 2. Clean category columns
+df_silver = (
+    df
+    .withColumn("CategoryLevel1", trim(col("CategoryLevel1")))
+    .withColumn("CategoryLevel2", trim(col("CategoryLevel2")))
+)
+
+# 3. Remove duplicates
+df_silver = df_silver.dropDuplicates()
+
+# 4. Write to Silver
+(
+    df_silver.write
+    .format("delta")
+    .mode("overwrite")
+    .option("overwriteSchema", "true")
+    .saveAsTable("d_item")
+)
+
+# 5. Summary
+print("BRONZE TO SILVER COMPLETED")
+print(f"Rows written: {df_silver.count()}")
 
 # METADATA ********************
 
