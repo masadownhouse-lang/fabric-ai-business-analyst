@@ -61,3 +61,41 @@ print(f"Rows written: {df_silver.count()}")
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# CELL ********************
+
+from pyspark.sql.functions import *
+
+print("Starting Bronze to Silver transformation...")
+
+# Read Bronze data
+df = spark.read.table("bronze_lakehouse.dbo.f_purchase_price")
+
+# Transform
+df_silver = (
+    df
+    .withColumn("ValidFromDate", to_date(col("ValidFromDate")))
+    .withColumn("ValidToDate", to_date(col("ValidToDate")))
+)
+
+# Remove duplicates
+df_silver = df_silver.dropDuplicates()
+
+# Write Silver
+(
+    df_silver.write
+    .format("delta")
+    .mode("overwrite")
+    .option("overwriteSchema", "true")
+    .saveAsTable("f_purchase_price")
+)
+
+print("BRONZE TO SILVER COMPLETED")
+print(f"Rows written: {df_silver.count()}")
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
