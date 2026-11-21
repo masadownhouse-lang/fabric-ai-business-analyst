@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "sm_ai_business_analyst"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ca129a61-a83f-905a-477a-e658757d79c0"
+  }
+}
