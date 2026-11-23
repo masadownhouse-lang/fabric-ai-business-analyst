@@ -107,6 +107,28 @@ Examples
 - Expiry risk increase
 - Gross Margin deviations from expected levels
 
+## Phase 2 - Fabric MVP
+
+### Bronze Layer
+
+✅ Complete
+
+### Silver Layer
+
+✅ Complete
+
+### Gold Layer
+
+✅ Complete
+
+### Semantic Model
+
+✅ Complete
+
+### Initial KPI Reporting
+
+✅ Complete
+
 Potential Technologies
 
 - Fabric Data Activator
