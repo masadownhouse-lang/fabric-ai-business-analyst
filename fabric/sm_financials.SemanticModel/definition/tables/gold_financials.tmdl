@@ -1,0 +1,60 @@
+table gold_financials
+	lineageTag: 7368dd38-3588-4058-9a6a-ec87f7ae5930
+	sourceLineageTag: [dbo].[gold_financials]
+
+	column PostingYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d850503-88df-4afe-b923-566e60804b3d
+		sourceLineageTag: PostingYear
+		summarizeBy: sum
+		sourceColumn: PostingYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostingMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: b774a3a7-db6c-47e2-a832-750dd191e87d
+		sourceLineageTag: PostingMonth
+		summarizeBy: sum
+		sourceColumn: PostingMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountGroup
+		dataType: string
+		lineageTag: 5e6917b0-62ef-4d38-b4d0-c86161738c70
+		sourceLineageTag: AccountGroup
+		summarizeBy: none
+		sourceColumn: AccountGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountCategory
+		dataType: string
+		lineageTag: 79d0efa3-3991-40b5-84f5-aea83c6bfcda
+		sourceLineageTag: AccountCategory
+		summarizeBy: none
+		sourceColumn: AccountCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: double
+		lineageTag: ad52d3c2-90d5-43b3-a36c-2c58a17e8374
+		sourceLineageTag: Amount
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition gold_financials = entity
+		mode: directLake
+		source
+			entityName: gold_financials
+			schemaName: dbo
+			expressionSource: 'DirectLake - gold_lakehouse'
+

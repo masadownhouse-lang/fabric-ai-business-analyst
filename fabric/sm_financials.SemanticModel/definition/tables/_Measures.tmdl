@@ -1,0 +1,93 @@
+table _Measures
+	lineageTag: e37a822e-e803-4980-936a-8578f0a7d405
+
+	measure COGS =
+			
+			CALCULATE(
+			    [Total Amount],
+			    gold_financials[AccountGroup] = "COGS"
+			)
+		lineageTag: ea85f7fd-481d-4ebf-acaa-f9be49f0c6cf
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure EBITDA =
+			
+			[Gross Margin] + [Operating Expenses]
+		lineageTag: 5f539f11-b7af-4855-aa1e-26be9521b3ac
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Gross Margin' =
+			
+			[Revenue] + [COGS]
+		lineageTag: 24077195-d68e-4bcd-8d4c-4a15fe2ada8f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Gross Margin %' =
+			
+			DIVIDE(
+			    [Gross Margin],
+			    [Revenue]
+			)
+		lineageTag: d56bb1aa-ee51-48fa-95b0-413f97d51dab
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Operating Expenses' =
+			
+			CALCULATE(
+			    [Total Amount],
+			    gold_financials[AccountGroup] = "Operating Expenses"
+			)
+		lineageTag: d6030bd1-361f-4b51-a44a-a7a3a7a464d8
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Revenue =
+			
+			CALCULATE(
+			    [Total Amount],
+			    gold_financials[AccountGroup] = "Revenue"
+			)
+		lineageTag: 41183d94-c0ff-41d1-83c1-d62ac8f26877
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Amount' =
+			
+			SUM(gold_financials[Amount])
+		lineageTag: 930cf0ae-ea39-4441-a048-c6f401b2dfe2
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Value
+		formatString: 0
+		lineageTag: 14ad8692-1926-44e3-a83e-229eeada8bb4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = calculated
+		mode: import
+		source = { 1 }
+
+	annotation PBI_Id = 43811981ea9d4cd59d1d7250ed365662
+
