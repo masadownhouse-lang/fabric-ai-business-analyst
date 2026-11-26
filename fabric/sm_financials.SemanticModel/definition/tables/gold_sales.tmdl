@@ -1,0 +1,99 @@
+table gold_sales
+	lineageTag: a7237d28-7e33-4b4f-afc6-374572f57a97
+	sourceLineageTag: [dbo].[gold_sales]
+
+	column SalesYear
+		dataType: int64
+		formatString: 0
+		lineageTag: aa4a12f8-1db4-44c1-ad36-204953462113
+		sourceLineageTag: SalesYear
+		summarizeBy: sum
+		sourceColumn: SalesYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 396e3cd0-d168-4e34-ac81-2002c65fa2ca
+		sourceLineageTag: SalesMonth
+		summarizeBy: sum
+		sourceColumn: SalesMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 7b114bf7-78b4-4473-9bfe-26a1f0dfc89c
+		sourceLineageTag: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Segment
+		dataType: string
+		lineageTag: 48ef666c-856c-44b7-baa6-df8ed5222931
+		sourceLineageTag: Segment
+		summarizeBy: none
+		sourceColumn: Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryLevel1
+		dataType: string
+		lineageTag: 3acbe69f-a71e-4ed5-b81b-2c5caab54831
+		sourceLineageTag: CategoryLevel1
+		summarizeBy: none
+		sourceColumn: CategoryLevel1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryLevel2
+		dataType: string
+		lineageTag: eebcf8c8-827e-4cce-a7f5-d57e034fb48a
+		sourceLineageTag: CategoryLevel2
+		summarizeBy: none
+		sourceColumn: CategoryLevel2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 077630c0-8efa-4bc5-b4b3-9106954c8524
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Revenue
+		dataType: double
+		lineageTag: e4723584-b05e-4f05-8e79-bca044edbade
+		sourceLineageTag: Revenue
+		summarizeBy: sum
+		sourceColumn: Revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DiscountAmount
+		dataType: double
+		lineageTag: 52540108-e931-41fd-8202-5394f2bef4b0
+		sourceLineageTag: DiscountAmount
+		summarizeBy: sum
+		sourceColumn: DiscountAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition gold_sales = entity
+		mode: directLake
+		source
+			entityName: gold_sales
+			schemaName: dbo
+			expressionSource: 'DirectLake - gold_lakehouse'
+

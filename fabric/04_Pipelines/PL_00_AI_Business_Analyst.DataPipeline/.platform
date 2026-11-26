@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "PL_00_AI_Business_Analyst"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e2456c9d-cc1f-ba4b-4e8e-efdfcfb1ffef"
+  }
+}
