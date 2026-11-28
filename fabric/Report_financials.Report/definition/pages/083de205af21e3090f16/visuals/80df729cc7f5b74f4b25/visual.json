@@ -5,8 +5,8 @@
     "x": 0,
     "y": 0,
     "z": 0,
-    "height": 232.5,
-    "width": 705,
+    "height": 496.66666666666669,
+    "width": 825,
     "tabOrder": 0
   },
   "visual": {
@@ -42,20 +42,6 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Amount"
-                }
-              },
-              "queryRef": "_Measures.Total Amount",
-              "nativeQueryRef": "Total Amount"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
                   "Property": "Revenue"
                 }
               },
@@ -75,6 +61,20 @@
               },
               "queryRef": "_Measures.Operating Expenses",
               "nativeQueryRef": "Operating Expenses"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "COGS"
+                }
+              },
+              "queryRef": "_Measures.COGS",
+              "nativeQueryRef": "COGS"
             },
             {
               "field": {
@@ -112,11 +112,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "COGS"
+                  "Property": "Total Amount"
                 }
               },
-              "queryRef": "_Measures.COGS",
-              "nativeQueryRef": "COGS"
+              "queryRef": "_Measures.Total Amount",
+              "nativeQueryRef": "Total Amount"
             }
           ]
         }
@@ -170,20 +170,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "1b29eb24eab54b1b8cc9",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Total Amount"
-          }
-        },
-        "type": "Advanced"
-      },
       {
         "name": "45a62f9195b1533d016d",
         "field": {

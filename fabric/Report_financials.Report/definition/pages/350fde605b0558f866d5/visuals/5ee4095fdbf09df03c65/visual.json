@@ -1,0 +1,243 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "5ee4095fdbf09df03c65",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 284.28571428571428,
+    "width": 1257.1428571428571,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_kpis"
+                    }
+                  },
+                  "Property": "PostingYear"
+                }
+              },
+              "queryRef": "gold_kpis.PostingYear",
+              "nativeQueryRef": "PostingYear",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_kpis"
+                    }
+                  },
+                  "Property": "PostingMonth"
+                }
+              },
+              "queryRef": "gold_kpis.PostingMonth",
+              "nativeQueryRef": "PostingMonth",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_kpis"
+                        }
+                      },
+                      "Property": "Revenue"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold_kpis.Revenue)",
+              "nativeQueryRef": "Sum of Revenue"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_kpis"
+                        }
+                      },
+                      "Property": "EBITDA"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold_kpis.EBITDA)",
+              "nativeQueryRef": "Sum of EBITDA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_kpis"
+                        }
+                      },
+                      "Property": "COGS"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold_kpis.COGS)",
+              "nativeQueryRef": "Sum of COGS"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_kpis"
+                        }
+                      },
+                      "Property": "OperatingExpenses"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold_kpis.OperatingExpenses)",
+              "nativeQueryRef": "Sum of OperatingExpenses"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_kpis"
+                        }
+                      },
+                      "Property": "GrossMargin"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold_kpis.GrossMargin)",
+              "nativeQueryRef": "Sum of GrossMargin"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_kpis"
+                        }
+                      },
+                      "Property": "GrossMarginPct"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold_kpis.GrossMarginPct)",
+              "nativeQueryRef": "Sum of GrossMarginPct"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "gold_kpis.PostingYear"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "gold_kpis.PostingMonth"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a796363eb320efdb5e05",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_kpis"
+              }
+            },
+            "Property": "PostingYear"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "576dd9aee6f7b9688f95",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_kpis"
+              }
+            },
+            "Property": "PostingMonth"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

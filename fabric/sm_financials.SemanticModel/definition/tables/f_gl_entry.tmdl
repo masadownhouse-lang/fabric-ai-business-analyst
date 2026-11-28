@@ -1,0 +1,120 @@
+table f_gl_entry
+	lineageTag: 8c43504e-6044-430d-ac4a-b02a9d73a357
+	sourceLineageTag: [dbo].[f_gl_entry]
+
+	column GLEntryNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 970968fd-d945-4389-8e56-9e6c8099ac45
+		sourceLineageTag: GLEntryNumber
+		summarizeBy: sum
+		sourceColumn: GLEntryNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostingDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8b61d29f-56d5-4a9f-b7cd-cbcad8a1a180
+		sourceLineageTag: PostingDate
+		summarizeBy: none
+		sourceColumn: PostingDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column DocumentNumber
+		dataType: string
+		lineageTag: 7b5fcd18-fc0b-4a6d-95c5-b3d5ddb12f00
+		sourceLineageTag: DocumentNumber
+		summarizeBy: none
+		sourceColumn: DocumentNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column DocumentType
+		dataType: string
+		lineageTag: 0d35411d-c33d-48ae-b5ea-c890f41575c1
+		sourceLineageTag: DocumentType
+		summarizeBy: none
+		sourceColumn: DocumentType
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e5e7bdc-1291-4fe9-994f-f34b3e1dd6db
+		sourceLineageTag: AccountKey
+		summarizeBy: count
+		sourceColumn: AccountKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 40cb1f89-7f07-4873-8f1f-1c2e53ecdf0a
+		sourceLineageTag: CustomerKey
+		summarizeBy: count
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupplierKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 844d1b57-df64-43da-9034-74e9f46fa1e3
+		sourceLineageTag: SupplierKey
+		summarizeBy: count
+		sourceColumn: SupplierKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c52b5fa-7ab8-4df8-87ee-25800a62d31c
+		sourceLineageTag: ItemKey
+		summarizeBy: count
+		sourceColumn: ItemKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: double
+		lineageTag: 62737707-c7b9-43ae-bbbe-036819cb9457
+		sourceLineageTag: Amount
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PostingYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 19d79ea4-81a2-4a42-aade-c5a18fd3f656
+		sourceLineageTag: PostingYear
+		summarizeBy: sum
+		sourceColumn: PostingYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostingMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: c933dde0-d186-4f71-8275-6809bc1275dc
+		sourceLineageTag: PostingMonth
+		summarizeBy: sum
+		sourceColumn: PostingMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_gl_entry = entity
+		mode: directLake
+		source
+			entityName: f_gl_entry
+			schemaName: dbo
+			expressionSource: 'DirectLake - silver_lakehouse'
+

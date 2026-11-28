@@ -1,0 +1,97 @@
+table gold_kpis
+	lineageTag: 8bf86b8a-6785-4d9d-9534-0b5fdbc1d021
+	sourceLineageTag: [dbo].[gold_kpis]
+
+	column PostingYear
+		dataType: int64
+		formatString: 0
+		lineageTag: a7e7f33d-32e2-47c4-811d-3a9441394293
+		sourceLineageTag: PostingYear
+		summarizeBy: sum
+		sourceColumn: PostingYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostingMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: db8a36c8-08d8-4bb3-8f9a-955b1f7c7b26
+		sourceLineageTag: PostingMonth
+		summarizeBy: sum
+		sourceColumn: PostingMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column Revenue
+		dataType: double
+		lineageTag: e11cadfc-534f-443a-ba02-a23e88413600
+		sourceLineageTag: Revenue
+		summarizeBy: sum
+		sourceColumn: Revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COGS
+		dataType: double
+		lineageTag: 9cf13e6b-8cab-4091-83e6-c254751b6871
+		sourceLineageTag: COGS
+		summarizeBy: sum
+		sourceColumn: COGS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OperatingExpenses
+		dataType: double
+		lineageTag: 06a6a2c6-344d-40cc-892a-938267533dbb
+		sourceLineageTag: OperatingExpenses
+		summarizeBy: sum
+		sourceColumn: OperatingExpenses
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GrossMargin
+		dataType: double
+		lineageTag: ef925228-7ba0-46a7-a362-ef20ee48fe72
+		sourceLineageTag: GrossMargin
+		summarizeBy: sum
+		sourceColumn: GrossMargin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EBITDA
+		dataType: double
+		lineageTag: 25002212-0abd-41a0-9ac2-a687645fe995
+		sourceLineageTag: EBITDA
+		summarizeBy: sum
+		sourceColumn: EBITDA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GrossMarginPct
+		dataType: double
+		lineageTag: 065772c2-9062-40f1-9b9b-46f93436413c
+		sourceLineageTag: GrossMarginPct
+		summarizeBy: sum
+		sourceColumn: GrossMarginPct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition gold_kpis = entity
+		mode: directLake
+		source
+			entityName: gold_kpis
+			schemaName: dbo
+			expressionSource: 'DirectLake - gold_lakehouse'
+

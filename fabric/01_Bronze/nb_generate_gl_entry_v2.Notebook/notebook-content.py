@@ -8,8 +8,8 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "c7365c89-ac0d-40cd-b656-3251515fc0eb",
-# META       "default_lakehouse_name": "silver_lakehouse",
+# META       "default_lakehouse": "55392c9d-8525-440b-8e37-cfddce4bb5e4",
+# META       "default_lakehouse_name": "bronze_lakehouse",
 # META       "default_lakehouse_workspace_id": "0c94de57-e2a9-43b8-b434-39b714e56a44",
 # META       "known_lakehouses": [
 # META         {
@@ -92,8 +92,7 @@ purchase_gl = (
         when(
             col("ItemKey").isin([1,2,3,4,5,6,7,8,9]),
             lit(7)
-        )
-        .otherwise(lit(8))
+        ).otherwise(lit(8))
     )
     .withColumn(
         "DocumentType",
@@ -118,25 +117,83 @@ purchase_gl = (
     )
 )
 
+# OPERATING EXPENSES
+# 5% OF SALES AS OPERATING COST
+
+opex_gl = (
+    df_sales
+    .withColumn(
+        "PostingDate",
+        to_date(col("InvoiceDate"))
+    )
+    .withColumn(
+        "AccountKey",
+        lit(20)
+    )
+    .withColumn(
+        "DocumentType",
+        lit("OPEX")
+    )
+    .withColumn(
+        "DocumentNumber",
+        concat(
+            lit("OPEX-"),
+            col("SalesInvoiceNumber")
+        )
+    )
+    .withColumn(
+        "Amount",
+        round(
+            col("NetAmount") * -0.05,
+            2
+        )
+    )
+    .select(
+        "PostingDate",
+        "DocumentNumber",
+        "DocumentType",
+        "AccountKey",
+        "CustomerKey",
+        "ItemKey",
+        "Amount"
+    )
+)
+
 # STANDARDIZE STRUCTURE
 
 sales_gl = (
     sales_gl
-    .withColumn("SupplierKey", lit(None).cast("int"))
+    .withColumn(
+        "SupplierKey",
+        lit(None).cast("int")
+    )
 )
 
 purchase_gl = (
     purchase_gl
-    .withColumn("CustomerKey", lit(None).cast("int"))
+    .withColumn(
+        "CustomerKey",
+        lit(None).cast("int")
+    )
+)
+
+opex_gl = (
+    opex_gl
+    .withColumn(
+        "SupplierKey",
+        lit(None).cast("int")
+    )
 )
 
 # UNION
 
-df_gl = sales_gl.unionByName(
-    purchase_gl
+df_gl = (
+    sales_gl
+    .unionByName(purchase_gl)
+    .unionByName(opex_gl)
 )
 
-# GENERATE GL ENTRY NUMBER
+# GL ENTRY NUMBER
 
 window_spec = Window.orderBy(
     "PostingDate"
@@ -166,7 +223,7 @@ df_gl = (
     )
 )
 
-# REBUILD TABLE
+# WRITE
 
 spark.sql("""
 DROP TABLE IF EXISTS f_gl_entry
@@ -180,14 +237,10 @@ DROP TABLE IF EXISTS f_gl_entry
     .saveAsTable("f_gl_entry")
 )
 
-# SUMMARY
-
-row_count = df_gl.count()
-
 print("=" * 60)
 print("GL GENERATION COMPLETED")
 print("=" * 60)
-print(f"Rows Generated : {row_count}")
+print(f"Rows Generated : {df_gl.count()}")
 print("=" * 60)
 
 # METADATA ********************

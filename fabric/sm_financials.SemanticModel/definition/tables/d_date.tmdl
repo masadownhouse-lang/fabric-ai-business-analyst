@@ -17,7 +17,7 @@ table d_date
 		formatString: 0
 		lineageTag: 691e55f4-8b1d-41d4-aa59-000a9222d038
 		sourceLineageTag: DateKey
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: DateKey
 
 		annotation SummarizationSetBy = Automatic
@@ -27,7 +27,7 @@ table d_date
 		formatString: 0
 		lineageTag: 1a12f999-dcaf-48c7-97a5-59dd93906d25
 		sourceLineageTag: Year
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Year
 
 		annotation SummarizationSetBy = Automatic
@@ -46,7 +46,7 @@ table d_date
 		formatString: 0
 		lineageTag: 258a794e-d512-4875-bcbd-1ae6ed4c8253
 		sourceLineageTag: Month
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Month
 
 		annotation SummarizationSetBy = Automatic
@@ -74,7 +74,7 @@ table d_date
 		formatString: 0
 		lineageTag: e2bc7d58-915c-4b1f-89e2-ad1d7ee58f5e
 		sourceLineageTag: Week
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Week
 
 		annotation SummarizationSetBy = Automatic
@@ -84,7 +84,7 @@ table d_date
 		formatString: 0
 		lineageTag: d486422a-2f3d-47a6-adec-1874ae71cd2d
 		sourceLineageTag: DayOfMonth
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: DayOfMonth
 
 		annotation SummarizationSetBy = Automatic
@@ -94,7 +94,7 @@ table d_date
 		formatString: 0
 		lineageTag: eea8c999-1ead-4fc1-bf6f-dae1d336933e
 		sourceLineageTag: DayOfWeek
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: DayOfWeek
 
 		annotation SummarizationSetBy = Automatic

@@ -26,50 +26,145 @@
 # CELL ********************
 
 from pyspark.sql.functions import *
+from pyspark.sql.types import IntegerType
 
 print("Starting Gold Financials generation...")
 
-# Read Silver tables
-df_gl = spark.read.table("silver_lakehouse.dbo.f_gl_entry")
+# READ SILVER TABLES
 
-df_coa = spark.read.table("silver_lakehouse.dbo.d_chart_of_accounts")
+df_gl = spark.read.table(
+    "silver_lakehouse.dbo.f_gl_entry"
+)
 
-# Join GL with Chart of Accounts
+df_coa = spark.read.table(
+    "silver_lakehouse.dbo.d_chart_of_accounts"
+)
+
+# NORMALIZE ACCOUNTKEY DATATYPE
+
+df_gl = (
+    df_gl
+    .withColumn(
+        "AccountKey",
+        col("AccountKey").cast(IntegerType())
+    )
+)
+
+df_coa = (
+    df_coa
+    .withColumn(
+        "AccountKey",
+        col("AccountKey").cast(IntegerType())
+    )
+)
+
+# DATE ATTRIBUTES
+
+df_gl = (
+    df_gl
+    .withColumn(
+        "PostingDate",
+        to_date(col("PostingDate"))
+    )
+    .withColumn(
+        "PostingYear",
+        year(col("PostingDate"))
+    )
+    .withColumn(
+        "PostingMonth",
+        month(col("PostingDate"))
+    )
+)
+
+# JOIN CHART OF ACCOUNTS
+
 df_gold = (
     df_gl.alias("gl")
     .join(
         df_coa.alias("coa"),
-        col("gl.AccountKey") == col("coa.AccountKey"),
-        "inner"
+        on="AccountKey",
+        how="left"
     )
 )
 
-# Aggregate to Financial Level
+# HANDLE MISSING COA MATCHES
+
 df_gold = (
     df_gold
-    .groupBy(
-        "PostingYear",
-        "PostingMonth",
-        "AccountGroup",
-        "AccountCategory"
+    .withColumn(
+        "AccountName",
+        coalesce(
+            col("AccountName"),
+            lit("UNKNOWN ACCOUNT")
+        )
     )
-    .agg(
-        round(sum("Amount"), 2).alias("Amount")
-    )
-    .orderBy(
-        "PostingYear",
-        "PostingMonth",
+    .withColumn(
         "AccountGroup",
-        "AccountCategory"
+        coalesce(
+            col("AccountGroup"),
+            lit("UNKNOWN GROUP")
+        )
+    )
+    .withColumn(
+        "AccountCategory",
+        coalesce(
+            col("AccountCategory"),
+            lit("UNKNOWN CATEGORY")
+        )
     )
 )
 
-# Drop old table
+# SELECT FINAL STRUCTURE
+
+df_gold = (
+    df_gold.select(
+        "GLEntryNumber",
+
+        "PostingDate",
+        "PostingYear",
+        "PostingMonth",
+
+        "DocumentNumber",
+        "DocumentType",
+
+        "CustomerKey",
+        "SupplierKey",
+        "ItemKey",
+
+        "AccountKey",
+        "AccountNumber",
+        "AccountName",
+        "AccountGroup",
+        "AccountCategory",
+
+        "Amount"
+    )
+)
+
+# VALIDATION OUTPUT
+
+print("=" * 60)
+print("ACCOUNT GROUP DISTRIBUTION")
+print("=" * 60)
+
+display(
+    df_gold
+    .groupBy("AccountGroup")
+    .agg(
+        count("*").alias("Rows"),
+        round(sum("Amount"), 2).alias("Amount")
+    )
+    .orderBy("AccountGroup")
+)
+
+# DROP OLD TABLE
+
 spark.sql("""
 DROP TABLE IF EXISTS gold_financials
 """)
 
-# Write Gold table
+# WRITE GOLD
+
 (
     df_gold.write
     .format("delta")
@@ -78,7 +173,7 @@ DROP TABLE IF EXISTS gold_financials
     .saveAsTable("gold_financials")
 )
 
-# Summary
+# SUMMARY
 
 row_count = df_gold.count()
 
@@ -90,17 +185,14 @@ account_groups = (
 )
 
 print("=" * 60)
-print("GOLD LAYER LOAD SUMMARY")
+print("GOLD FINANCIALS LOAD SUMMARY")
 print("=" * 60)
-print("Target Lakehouse : gold_lakehouse")
-print("Target Table     : gold_financials")
 print(f"Rows Generated   : {row_count}")
 print(f"Account Groups   : {account_groups}")
 print("Load Status      : SUCCESS")
 print("=" * 60)
 
 display(df_gold)
-
 
 # METADATA ********************
 

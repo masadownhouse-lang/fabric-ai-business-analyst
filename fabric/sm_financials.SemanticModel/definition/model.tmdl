@@ -16,4 +16,6 @@ ref table gold_financials
 ref table _Measures
 ref table d_date
 ref table gold_sales
+ref table gold_kpis
+ref table f_gl_entry
 

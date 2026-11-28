@@ -29,67 +29,55 @@ from pyspark.sql.functions import *
 
 print("Starting Gold KPI generation...")
 
-# Read Gold Financials
+# READ GOLD FINANCIALS
 
-df = spark.read.table("gold_lakehouse.dbo.gold_financials")
-
-# Revenue
-
-df_revenue = (
-    df
-    .filter(col("AccountGroup") == "Revenue")
-    .groupBy("PostingYear", "PostingMonth")
-    .agg(
-        round(sum("Amount"), 2).alias("Revenue")
-    )
+df = spark.read.table(
+    "gold_lakehouse.dbo.gold_financials"
 )
 
-# COGS
-
-df_cogs = (
-    df
-    .filter(col("AccountGroup") == "COGS")
-    .groupBy("PostingYear", "PostingMonth")
-    .agg(
-        round(sum("Amount"), 2).alias("COGS")
-    )
-)
-
-# Operating Expenses
-
-df_opex = (
-    df
-    .filter(col("AccountGroup") == "Operating Expenses")
-    .groupBy("PostingYear", "PostingMonth")
-    .agg(
-        round(sum("Amount"), 2).alias("OperatingExpenses")
-    )
-)
-
-# Combine KPI Tables
+# MONTHLY KPI AGGREGATION
 
 df_kpis = (
-    df_revenue
-    .join(
-        df_cogs,
-        ["PostingYear", "PostingMonth"],
-        "full"
+    df
+    .groupBy(
+        "PostingYear",
+        "PostingMonth"
     )
-    .join(
-        df_opex,
-        ["PostingYear", "PostingMonth"],
-        "full"
+    .agg(
+
+        round(
+            sum(
+                when(
+                    col("AccountGroup") == "Revenue",
+                    col("Amount")
+                ).otherwise(0)
+            ),
+            2
+        ).alias("Revenue"),
+
+        round(
+            sum(
+                when(
+                    col("AccountGroup") == "COGS",
+                    col("Amount")
+                ).otherwise(0)
+            ),
+            2
+        ).alias("COGS"),
+
+        round(
+            sum(
+                when(
+                    col("AccountGroup") == "Operating Expenses",
+                    col("Amount")
+                ).otherwise(0)
+            ),
+            2
+        ).alias("OperatingExpenses")
     )
 )
 
-# Replace Nulls
-
-df_kpis = (
-    df_kpis
-    .fillna(0)
-)
-
-# Gross Margin
+# KPI CALCULATIONS
 
 df_kpis = (
     df_kpis
@@ -100,44 +88,46 @@ df_kpis = (
             2
         )
     )
-)
-
-# EBITDA
-
-df_kpis = (
-    df_kpis
     .withColumn(
         "EBITDA",
         round(
-            col("GrossMargin") + col("OperatingExpenses"),
+            col("Revenue")
+            + col("COGS")
+            + col("OperatingExpenses"),
             2
         )
     )
-)
-
-# Gross Margin %
-
-df_kpis = (
-    df_kpis
     .withColumn(
         "GrossMarginPct",
         when(
             col("Revenue") != 0,
             round(
-                (col("GrossMargin") / col("Revenue")) * 100,
+                (
+                    col("GrossMargin")
+                    / col("Revenue")
+                ) * 100,
                 2
             )
-        ).otherwise(0)
+        )
     )
 )
 
-# Drop old table
+# ORDER
+
+df_kpis = (
+    df_kpis.orderBy(
+        "PostingYear",
+        "PostingMonth"
+    )
+)
+
+# DROP OLD TABLE
 
 spark.sql("""
 DROP TABLE IF EXISTS gold_kpis
 """)
 
-# Write table
+# WRITE TABLE
 
 (
     df_kpis.write
@@ -147,7 +137,7 @@ DROP TABLE IF EXISTS gold_kpis
     .saveAsTable("gold_kpis")
 )
 
-# Summary
+# SUMMARY
 
 print("=" * 60)
 print("GOLD KPI LOAD SUMMARY")

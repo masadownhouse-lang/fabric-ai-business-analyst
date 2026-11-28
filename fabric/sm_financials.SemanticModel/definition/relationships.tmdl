@@ -1,0 +1,4 @@
+relationship f7b2155c-e159-5b44-a0dd-829471404a0b
+	fromColumn: f_gl_entry.PostingDate
+	toColumn: d_date.Date
+

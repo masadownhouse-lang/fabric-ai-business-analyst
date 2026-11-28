@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "1848ed4d5f7e053dabe5",
+  "position": {
+    "x": 0,
+    "y": 294,
+    "z": 1,
+    "height": 284,
+    "width": 1257,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_gl_entry"
+                    }
+                  },
+                  "Property": "DocumentType"
+                }
+              },
+              "queryRef": "f_gl_entry.DocumentType",
+              "nativeQueryRef": "DocumentType",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_gl_entry"
+                    }
+                  },
+                  "Property": "PostingYear"
+                }
+              },
+              "queryRef": "f_gl_entry.PostingYear",
+              "nativeQueryRef": "PostingYear",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_gl_entry"
+                        }
+                      },
+                      "Property": "Amount"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(f_gl_entry.Amount)",
+              "nativeQueryRef": "Sum of Amount"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

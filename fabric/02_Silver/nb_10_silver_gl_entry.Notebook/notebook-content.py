@@ -61,15 +61,3 @@ print(f"Rows written: {df_silver.count()}")
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
-
-# CELL ********************
-
-# MAGIC %%sql
-# MAGIC SELECT COUNT(*) FROM f_gl_entry
-
-# METADATA ********************
-
-# META {
-# META   "language": "sparksql",
-# META   "language_group": "synapse_pyspark"
-# META }
